@@ -1,3 +1,9 @@
+import TemplateForm from '@/components/TemplateForm';
+
 export default function Create() {
-  return <div>Create page</div>;
+  return (
+    <>
+      <TemplateForm />
+    </>
+  );
 }
