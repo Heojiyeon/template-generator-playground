@@ -1,8 +1,7 @@
 import { UseFieldArrayReturn, UseFormRegister } from 'react-hook-form';
 
 import useDynamicFormStore from '@/store/useDynamicFormStore';
-
-import { FormValues } from '.';
+import { FormValues } from '@/types/templateForm';
 
 type TemplateFormContentProp = {
   fieldArray: UseFieldArrayReturn<FormValues, 'questions', 'id'>;

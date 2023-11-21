@@ -1,13 +1,15 @@
 import { create } from 'zustand';
 
-type Question = {
+interface Question {
+  id: string;
+  order: number;
   type: string;
   title: string;
   description?: string;
   option?: boolean;
   details?: string[];
   isRequired: boolean;
-};
+}
 
 type State = {
   questions: Question[];

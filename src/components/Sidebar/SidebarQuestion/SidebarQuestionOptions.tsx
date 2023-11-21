@@ -19,6 +19,8 @@ export default function SidebarQuestionOptions({
           key={idx}
           onClick={() =>
             appendQuestions({
+              id: `${idx} ${option.name}`,
+              order: Number(`${idx}`),
               type: `${option.type}`,
               title: '',
               isRequired: false,
