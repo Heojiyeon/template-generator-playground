@@ -1,20 +1,9 @@
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 
+import { FormValues } from '@/types/templateForm';
+
 import TemplateFormContent from './TemplateFormContent';
 import TemplateFormHeader from './TemplateFormHeader';
-
-export type FormValues = {
-  templateTitle: string;
-  templateSubscription?: string;
-  questions?: {
-    type: string;
-    title: string;
-    description?: string;
-    option?: boolean;
-    details?: string[];
-    isRequired: boolean;
-  }[];
-};
 
 export default function TemplateForm() {
   const {

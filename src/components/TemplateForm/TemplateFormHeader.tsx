@@ -2,8 +2,7 @@ import styled from '@emotion/styled';
 import { UseFormRegister } from 'react-hook-form';
 
 import useStaticFormStore from '@/store/useStaticFormStore';
-
-import { FormValues } from '.';
+import { FormValues } from '@/types/templateForm';
 
 type TemplateFormHeaderProp = {
   register: UseFormRegister<FormValues>;
