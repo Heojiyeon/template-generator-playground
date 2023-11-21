@@ -1,3 +1,5 @@
+import useDynamicFormStore from '@/store/useDynamicFormStore';
+
 type SidebarQuestionOptions = {
   selectedOptions: {
     type: string;
@@ -8,10 +10,23 @@ type SidebarQuestionOptions = {
 export default function SidebarQuestionOptions({
   selectedOptions,
 }: SidebarQuestionOptions) {
+  const appendQuestions = useDynamicFormStore(state => state.appendQuestions);
+
   return (
     <div>
       {selectedOptions.map((option, idx) => (
-        <li key={idx}>{option.name}</li>
+        <li
+          key={idx}
+          onClick={() =>
+            appendQuestions({
+              type: `${option.type}`,
+              title: '',
+              isRequired: false,
+            })
+          }
+        >
+          {option.name}
+        </li>
       ))}
     </div>
   );

@@ -1,5 +1,7 @@
 import { UseFieldArrayReturn, UseFormRegister } from 'react-hook-form';
 
+import useDynamicFormStore from '@/store/useDynamicFormStore';
+
 import { FormValues } from '.';
 
 type TemplateFormContentProp = {
@@ -13,33 +15,20 @@ export default function TemplateFormContent({
 }: TemplateFormContentProp) {
   const { fields, append, remove } = fieldArray;
 
+  const questions = useDynamicFormStore(state => state.questions);
+
   return (
     <div>
-      TemplateFormContent
-      <button
-        onClickCapture={e => e.preventDefault()}
-        onClick={() =>
-          append({
-            type: 'text',
-            title: '',
-            description: '',
-            option: false,
-            isRequired: false,
-          })
-        }
-      >
-        +
-      </button>
-      {fields.map((field, idx) => (
-        <li key={field.id}>
-          <div>{field.type}</div>
+      {questions.map((question, idx) => (
+        <li key={idx}>
+          <div>{question.type}</div>
           <input
             {...register(`questions.${idx}.title` as const)}
-            defaultValue={field.title}
+            defaultValue={question.title}
           />
           <input
             {...register(`questions.${idx}.description` as const)}
-            defaultValue={field.description}
+            defaultValue={question.description}
           />
         </li>
       ))}

@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { UseFormRegister } from 'react-hook-form';
 
+import useStaticFormStore from '@/store/useStaticFormStore';
+
 import { FormValues } from '.';
 
 type TemplateFormHeaderProp = {
@@ -10,19 +12,34 @@ type TemplateFormHeaderProp = {
 export default function TemplateFormHeader({
   register,
 }: TemplateFormHeaderProp) {
+  const templateTitle = useStaticFormStore(state => state.templateTitle);
+  const updateTitle = useStaticFormStore(state => state.updateTitle);
+
+  const templateSubscription = useStaticFormStore(
+    state => state.templateSubscription
+  );
+  const updateSubScription = useStaticFormStore(
+    state => state.updateSubScription
+  );
   return (
     <div>
       <InputContainer>
         <label htmlFor="template-title">템플릿 제목 *</label>
         <input
           id="template-title"
-          defaultValue="제목이 없는 템플릿"
           {...register('templateTitle')}
+          onChange={e => updateTitle(e.target.value)}
+          value={templateTitle}
         />
       </InputContainer>
       <InputContainer>
-        <label>설명</label>
-        <input {...register('templateSubscription')} />
+        <label htmlFor="template-subscription">설명</label>
+        <input
+          id="template-subscription"
+          {...register('templateSubscription')}
+          value={templateSubscription}
+          onChange={e => updateSubScription(e.target.value)}
+        />
       </InputContainer>
     </div>
   );
