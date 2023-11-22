@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import useDynamicFormStore from '@/store/useDynamicFormStore';
 
 type SidebarQuestionOptions = {
@@ -19,9 +21,10 @@ export default function SidebarQuestionOptions({
           key={idx}
           onClick={() =>
             appendQuestions({
-              id: `${idx} ${option.name}`,
-              order: Number(`${idx}`),
+              id: `${uuidv4}`,
+              order: Number(`${idx + 1}`),
               type: `${option.type}`,
+              name: `${option.name}`,
               title: '',
               isRequired: false,
             })
