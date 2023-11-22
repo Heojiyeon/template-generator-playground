@@ -1,15 +1,6 @@
 import { create } from 'zustand';
 
-interface Question {
-  id: string;
-  order: number;
-  type: string;
-  title: string;
-  description?: string;
-  option?: boolean;
-  details?: string[];
-  isRequired: boolean;
-}
+import { Question } from '@/types/templateForm';
 
 type State = {
   questions: Question[];
