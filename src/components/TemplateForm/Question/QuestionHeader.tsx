@@ -1,6 +1,6 @@
-import { Question } from '@/types/templateForm';
+import { QuestionValues } from '@/types/templateForm';
 
-type QuestionHeaderProp = Pick<Question, 'order' | 'name' | 'type'>;
+type QuestionHeaderProp = Pick<QuestionValues, 'order' | 'name' | 'type'>;
 
 export default function QuestionHeader({
   order,

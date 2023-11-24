@@ -1,13 +1,13 @@
 import { create } from 'zustand';
 
-import { Question } from '@/types/templateForm';
+import { QuestionValues } from '@/types/templateForm';
 
 type State = {
-  questions: Question[];
+  questions: QuestionValues[];
 };
 
 type Action = {
-  appendQuestions: (question: Question) => void;
+  appendQuestions: (question: QuestionValues) => void;
 };
 
 const useDynamicFormStore = create<State & Action>(set => ({

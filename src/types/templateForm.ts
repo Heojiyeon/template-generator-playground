@@ -11,7 +11,7 @@ export type FormValues = {
   }[];
 };
 
-export interface Question {
+export interface QuestionValues {
   id: string;
   order: number;
   type: string;
