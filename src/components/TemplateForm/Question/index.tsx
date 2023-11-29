@@ -1,11 +1,11 @@
-import { Question } from '@/types/templateForm';
+import { QuestionValues } from '@/types/templateForm';
 
 import QuestionContent from './QuestionContent';
 import QuestionFooter from './QuestionFooter';
 import QuestionHeader from './QuestionHeader';
 
 type QuestionProp = {
-  question: Question;
+  question: QuestionValues;
 };
 
 export default function Question({ question }: QuestionProp) {
