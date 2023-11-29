@@ -1,10 +1,16 @@
 import { useState } from 'react';
+import { UseFieldArrayAppend } from 'react-hook-form';
 
 import { SIDEBAR_OPTIONS_BY_TYPE } from '@/constants/sidebar';
+import { FormValues } from '@/types/templateForm';
 
 import SidebarQuestionOptions from './SidebarQuestionOptions';
 
-export default function SidebarQuestion() {
+type SidebarQuestionProp = {
+  append: UseFieldArrayAppend<FormValues, 'questions'>;
+};
+
+export default function SidebarQuestion({ append }: SidebarQuestionProp) {
   const [selectedOptions, setSelectedOptions] = useState(
     SIDEBAR_OPTIONS_BY_TYPE[0]
   );
@@ -19,7 +25,10 @@ export default function SidebarQuestion() {
           +전문 문항
         </button>
       </div>
-      <SidebarQuestionOptions selectedOptions={selectedOptions.options} />
+      <SidebarQuestionOptions
+        selectedOptions={selectedOptions.options}
+        append={append}
+      />
     </div>
   );
 }

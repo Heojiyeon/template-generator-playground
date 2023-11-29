@@ -1,12 +1,19 @@
 import styled from '@emotion/styled';
+import { UseFieldArrayAppend } from 'react-hook-form';
+
+import { FormValues } from '@/types/templateForm';
 
 import SidebarController from './SidebarController';
 import SidebarQuestion from './SidebarQuestion';
 
-export default function Sidebar() {
+type SidebarProp = {
+  append: UseFieldArrayAppend<FormValues, 'questions'>;
+};
+
+export default function Sidebar({ append }: SidebarProp) {
   return (
     <SidebarContainer>
-      <SidebarQuestion />
+      <SidebarQuestion append={append} />
       <SidebarController />
     </SidebarContainer>
   );

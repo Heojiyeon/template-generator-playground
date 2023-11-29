@@ -1,8 +1,17 @@
 import { FormLabel, Switch } from '@chakra-ui/react';
 import styled from '@emotion/styled';
+import { UseFieldArrayRemove } from 'react-hook-form';
 import { FaRegTrashCan } from 'react-icons/fa6';
 
-export default function QuestionFooter() {
+type QuestionFooterProp = {
+  currentIndex: number;
+  remove: UseFieldArrayRemove;
+};
+
+export default function QuestionFooter({
+  currentIndex,
+  remove,
+}: QuestionFooterProp) {
   return (
     <QuestionFooterContainer>
       <div>
@@ -15,7 +24,10 @@ export default function QuestionFooter() {
         <FormLabel htmlFor="question-removed" mb="0">
           삭제
         </FormLabel>
-        <FaRegTrashCan id="question-removed" />
+        <FaRegTrashCan
+          id="question-removed"
+          onClick={() => remove(currentIndex)}
+        />
       </div>
     </QuestionFooterContainer>
   );
